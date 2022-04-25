@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+    <style type="text/css">
+        .item {
+            width: 150px;
+            height: 150px;
+            background-size:100%;
+            background-repeat: no-repeat;
+            margin-top: 20px;
+            margin-left: 20px;
+        }
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            height: 200px;
+            width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .active{
+            border: 5px solid pink;
+        }
+
+        .box1{
+
+        }
+        .box2{
+
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="row ">
+    </div>
+
+<script type="text/javascript">
+    //див-родитель
+    let row = document.querySelector(".row");
+    let checker = 0;
+    let checker2 = 0;
+    let checker3 = 0;
+    let checker4 = 0;
+    let checker5 = 0;
+    let checker6 = 0;
+    let earaser = function(arg){
+        document.querySelectorAll(arg)[0].style.opacity = 0;
+        document.querySelectorAll(arg)[1].style.opacity = 0;
+    }
+
+    //хранение картинок
+    let images = ["1.png", "2.png", "3.png", "4.png", "5.png", "6.png", "1.png", "2.png", "3.png", "4.png", "5.png", "6.png"];
+
+    let randomizer = function(arg) {
+        let random = Math.random() * arg;
+        let round = Math.round(random) 
+        return round
+    }
+
+
+    for(let i = 0; i<12; i++){
+        let random = randomizer(images.length-1);
+        let box = document.createElement('div');
+        row.appendChild(box);
+        box.name = images[random];
+        box.classList.add("item");
+        box.style.backgroundImage = "url("+images[random]+")";
+        images.splice(random, 1);
+
+        box.onclick = function(){
+            console.log('yes')
+            if(box.name == "1.png"){
+                console.log('djigli')
+                box.classList.add('active');
+                box.classList.add('box1');
+                checker+=1;
+                if(checker==2){
+                    earaser(".box1")
+                    checker = 0
+                }
+            }
+            else if(box.name == "2.png"){
+                console.log('mew')
+                box.classList.add('active');
+                box.classList.add('box2');
+                checker2+=1;
+                if(checker2==2){
+                    earaser(".box2")
+                    
+                    
+                }
+            }
+            else if(box.name == "3.png"){
+                console.log('mew')
+                box.classList.add('active');
+                box.classList.add('box3');
+                checker3+=1;
+                if(checker3==2){
+                    earaser(".box3")
+                    
+                    
+                }
+            }
+            else if(box.name == "3.png"){
+                console.log('mew')
+                box.classList.add('active');
+                box.classList.add('box3');
+                checker3+=1;
+                if(checker3==2){
+                    earaser(".box3")
+                    
+                    
+                }
+            }
+            else if(box.name == "4.png"){
+                console.log('mew')
+                box.classList.add('active');
+                box.classList.add('box4');
+                checker4+=1;
+                if(checker4==2){
+                    earaser(".box4")
+                    
+                    
+                }
+            }
+            else if(box.name == "5.png"){
+                console.log('mew')
+                box.classList.add('active');
+                box.classList.add('box5');
+                checker5+=1;
+                if(checker5==2){
+                    earaser(".box5")
+                    
+                    
+                }
+            }
+            else if(box.name == "6.png"){
+                console.log('mew')
+                box.classList.add('active');
+                box.classList.add('box6');
+                checker6+=1;
+                if(checker6==2){
+                    earaser(".box6")
+                    
+                    
+                }
+            }
+        }
+
+    }
+
+    
+
+</script>
+</body>
+</html>
